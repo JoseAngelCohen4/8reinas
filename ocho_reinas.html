@@ -28,7 +28,7 @@
     <script>
         var reinasColocadas = 0;
         var reinasRestantes = 8;
-        var git;
+        
 
         function colocarReina(celda) {
         //alert("click reina" + celda);
@@ -93,7 +93,70 @@
             }
         }
     }
-      }
+    }
+
+    function solucion(solucion){
+        switch(solucion){
+            case "1": solucion1();break;
+            case "2": solucion2();break;
+            case "3": solucion3();break;
+        }
+    }
+    document.getElementById("reinasColocadas").innerHTML = 8;
+    reinasColocadas=8;
+    reinasRestantes=0;
+       
+    function solucion1(){
+            limpiar();
+            var celdas = document.getElementById("chessBoard");
+            
+            celdas.rows[0].cells[3].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[1].cells[6].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[2].cells[2].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[3].cells[7].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[4].cells[1].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[5].cells[4].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[6].cells[0].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[7].cells[5].style= "background-image: url(./img/reina1.png); background-size:cover;"
+        }
+        function solucion2(){
+            limpiar();
+            var celdas = document.getElementById("chessBoard");
+            
+            celdas.rows[0].cells[4].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[1].cells[1].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[2].cells[3].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[3].cells[6].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[4].cells[2].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[5].cells[7].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[6].cells[5].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[7].cells[0].style= "background-image: url(./img/reina1.png); background-size:cover;"
+        }
+        function solucion3(){
+            limpiar();
+            var celdas = document.getElementById("chessBoard");
+            
+            celdas.rows[0].cells[3].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[1].cells[1].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[2].cells[6].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[3].cells[2].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[4].cells[5].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[5].cells[7].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[6].cells[4].style= "background-image: url(./img/reina1.png); background-size:cover;"
+            celdas.rows[7].cells[0].style= "background-image: url(./img/reina1.png); background-size:cover;"
+        }
+
+        function limpiar(){
+            var celdas=document.getElementsByTagName("td")
+            for (var i = 0; i < celdas.length; i++){
+                celdas[i].style = "background-image:none;" 
+            }
+        }
+    
+    
+
+        
+    
     </script>
 </head>
 <div>
@@ -102,6 +165,15 @@
     <p>Reinas colocadas: <span id="reinasColocadas">0</span></p>
     <p>Reinas restantes: <span id="reinasRestantes">8</span></p>
     <p>Reinas amenazadas: <span id="reinasAmenazadas">0</span></p>
+
+    <select name="" id="" onchange="solucion(this.value)">
+        <option value="" selected>---</option>
+        <option value="1">Solucion 1</option>
+        <option value="2">Solucion 2</option>
+        <option value="3">Solucion 3</option>
+    </select>
+    <input type="button" value="Reiniciar" onclick="location.reload();">
+
 </div>
     <body>
         <table id="chessBoard">
